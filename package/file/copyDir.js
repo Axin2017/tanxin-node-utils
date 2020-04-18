@@ -24,8 +24,6 @@ function copyDirSync (from, to, ignoreFunc) {
     if (temp.isFile()) { // 是文件
       if (!hasIgnoreFunc || !ignoreFunc(itemPath)) {
         fs.copyFileSync(itemPath, path.join(to, item))
-      } else {
-        console.log(itemPath)
       }
     } else if (temp.isDirectory()) { // 是目录
       copyDirSync(itemPath, path.join(to, item), ignoreFunc)
